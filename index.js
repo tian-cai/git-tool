@@ -55,10 +55,10 @@ function getAllAuthor(author) {
         }
         let arr = readAuthor.split('\t')
         let uniqueArr = [...new Set(arr)]
-        if (author && uniqueArr.indexOf(author)!=-1) {
+        if (author && uniqueArr.indexOf(author) != -1) {
           getCodeLineNumByAuthor(author)
         }
-        if (author && uniqueArr.indexOf(author)==-1) {
+        if (author && uniqueArr.indexOf(author) == -1) {
           console.error('输入作者无效')
           process.exit(1)
         }
@@ -82,7 +82,7 @@ function getCodeLineNumByAuthor(author) {
       console.log(error)
       process.exit(1)
     }
-    readInfoArr = []
+    let readInfoArr = []
     let randomFile = randomFileName()
     fs.writeFileSync(randomFile, stdout)
     const rl = readline.createInterface({
@@ -96,21 +96,16 @@ function getCodeLineNumByAuthor(author) {
       }
     });
     rl.on('close', () => {
-      fs.unlink(randomFile, (err) => {
-        if (err) {
-          console.error(err)
-          process.exit(1)
-        }
-        let result = handleLine()
-        result.author = author
-        console.log(result)
-      })
+      fs.unlinkSync(randomFile)
+      let result = handleLine(readInfoArr)
+      result.author = author
+      console.log(result)
     });
   })
 }
 
 // 逐行读取文件并计算提交数据
-function handleLine() {
+function handleLine(readInfoArr) {
   let total = 0, add = 0, del = 0;
   readInfoArr.forEach((ele) => {
     add += ele.add - 0 === Number(ele.add) ? Number(ele.add) : 0;
@@ -122,5 +117,5 @@ function handleLine() {
 
 // 生成随即文件名称
 function randomFileName() {
-  return 'git-tool-' + Date.now() + Math.random() * 10000 + '.text'
+  return 'git-tool' + Date.now() + Math.random() * 1000 + '.text'
 }
