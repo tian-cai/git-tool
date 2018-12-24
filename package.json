@@ -1,0 +1,26 @@
+{
+  "name": "git-tool",
+  "version": "1.0.0",
+  "description": "统计个人代码提交量的命令行工具",
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^2.19.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "git-tool": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tian-cai/git-tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tian-cai/git-tool/issues"
+  },
+  "homepage": "https://github.com/tian-cai/git-tool#readme"
+}
