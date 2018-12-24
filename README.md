@@ -1,6 +1,10 @@
 # git-tool
 统计个人代码提交量的命令行工具
 
+### 全局安装
+```
+npm install git-tool -g
+```
 ### 使用方法
 ```
 git-tool codeLineNum 统计所有作者的代码量
