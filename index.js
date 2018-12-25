@@ -3,11 +3,9 @@ const program = require('commander');
 const child_process = require('child_process');
 const fs = require('fs');
 const readline = require('readline');
-let readInfoArr = []
-let readAuthor = ''
 
 program
-  .version('1.0.0')
+  .version('1.0.3')
 
 program
   .command('codeLineNum')
@@ -37,7 +35,7 @@ function getAllAuthor(author) {
       console.log(error)
       process.exit(1)
     }
-    readAuthor = ''
+    let readAuthor = ''
     const randomFile = randomFileName()
     fs.writeFileSync(randomFile, stdout)
     const rl = readline.createInterface({
