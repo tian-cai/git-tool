@@ -1,6 +1,6 @@
 {
   "name": "git-tool",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "统计个人代码提交量的命令行工具",
   "main": "index.js",
   "dependencies": {
@@ -17,7 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/tian-cai/git-tool.git"
   },
-  "author": "",
+  "author": "tian-cai",
+  "keywords": [
+    "git-tool", "统计个人代码提交量的命令行工具"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tian-cai/git-tool/issues"

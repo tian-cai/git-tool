@@ -5,7 +5,7 @@ const fs = require('fs');
 const readline = require('readline');
 
 program
-  .version('1.0.3')
+  .version('1.0.4')
 
 program
   .command('codeLineNum')
