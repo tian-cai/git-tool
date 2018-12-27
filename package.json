@@ -1,6 +1,6 @@
 {
   "name": "git-tool",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "统计个人代码提交量的命令行工具",
   "main": "index.js",
   "dependencies": {

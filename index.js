@@ -30,7 +30,7 @@ program.parse(process.argv);
 // 获取所有作者
 function getAllAuthor(author) {
   const cmd = `git log --format='%aN'`
-  let subprocess = child_process.exec(cmd, (error, stdout, stderr) => {
+  let subprocess = child_process.exec(cmd, { maxBuffer: 1000 * 1024 }, (error, stdout, stderr) => {
     if (error) {
       console.log(error)
       process.exit(1)
@@ -74,8 +74,8 @@ function getAllAuthor(author) {
 
 // 获取指定作者的git代码量
 function getCodeLineNumByAuthor(author) {
-  const cmd = `git log --author=${author} --pretty=tformat: --numstat`
-  let subprocess = child_process.exec(cmd, (error, stdout, stderr) => {
+  const cmd = `git log --author='${author}' --pretty=tformat: --numstat`
+  let subprocess = child_process.exec(cmd, { maxBuffer: 1000 * 1024 }, (error, stdout, stderr) => {
     if (error) {
       console.log(error)
       process.exit(1)
