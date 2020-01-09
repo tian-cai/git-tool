@@ -3,7 +3,8 @@
   "version": "1.0.7",
   "description": "统计个人代码提交量的命令行工具",
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "semver": "^7.1.1"
   },
   "devDependencies": {
     "conventional-changelog-cli": "2.0.31"
@@ -34,5 +35,8 @@
   "bugs": {
     "url": "https://github.com/tian-cai/git-tool/issues"
   },
-  "homepage": "https://github.com/tian-cai/git-tool#readme"
+  "homepage": "https://github.com/tian-cai/git-tool#readme",
+  "engines": {
+    "node": ">=6.0.0"
+  }
 }

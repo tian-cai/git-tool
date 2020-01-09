@@ -1,5 +1,9 @@
 #!/usr/bin/env node
 const program = require('commander');
+const util = require('../lib/util')
+const requiredVersion = require('../../package.json').engines.node
+
+util.checkNodeVersion(requiredVersion, `${require('../../package').name}`)
 
 program
   .version(`${require('../../package').version}`)
