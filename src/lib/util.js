@@ -1,4 +1,5 @@
 const semver = require('semver')
+const chalk = require('chalk')
 
 const util = {
     randomFileName: randomFileName,
@@ -13,9 +14,10 @@ function randomFileName(filename, extension) {
 function checkNodeVersion(wanted, id) {
     const isSatisfied = semver.satisfies(process.version, wanted)
     if (!isSatisfied) {
-        console.log(
+        console.log(chalk.red(
             'You are using Node ' + process.version + ', but this version of ' + id +
-            ' requires Node ' + wanted + '.\nPlease upgrade your Node version.')
+            ' requires Node ' + wanted + '.\nPlease upgrade your Node version.'
+          ))
         process.exit(1)
     }
 }

@@ -3,6 +3,7 @@
   "version": "1.0.7",
   "description": "统计个人代码提交量的命令行工具",
   "dependencies": {
+    "chalk": "^3.0.0",
     "commander": "^2.19.0",
     "didyoumean": "^1.2.1",
     "semver": "^7.1.1"

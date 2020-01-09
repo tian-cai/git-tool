@@ -1,6 +1,7 @@
 const child_process = require('child_process');
 const fs = require('fs');
 const readline = require('readline');
+const chalk = require('chalk')
 const util = require('./util')
 
 
@@ -8,7 +9,7 @@ function getAllAuthor(author) {
     const cmd = `git log --format='%aN'`
     let subprocess = child_process.exec(cmd, (error, stdout, stderr) => {
         if (error) {
-            console.log(error)
+            console.log(chalk.red(error))
             process.exit(1)
         }
         let readAuthor = ''
@@ -24,7 +25,7 @@ function getAllAuthor(author) {
         rl.on('close', () => {
             fs.unlink(randomFile, (err) => {
                 if (err) {
-                    console.error(err)
+                    console.error(chalk.red(err))
                     process.exit(1)
                 }
                 let arr = readAuthor.split('\t')
@@ -33,7 +34,7 @@ function getAllAuthor(author) {
                     getCodeLineNumByAuthor(author)
                 }
                 if (author && uniqueArr.indexOf(author) == -1) {
-                    console.error('该贡献者对该项目没有贡献代码')
+                    console.log(chalk.yellow('该贡献者对该项目没有贡献代码'))
                     process.exit(1)
                 }
                 if (!author) {
@@ -53,7 +54,7 @@ function getCodeLineNumByAuthor(author) {
     const cmd = `git log --author='${author}' --pretty=tformat: --numstat`
     let subprocess = child_process.exec(cmd, { maxBuffer: 2000 * 1024 }, (error, stdout, stderr) => {
         if (error) {
-            console.log(error)
+            console.log(chalk.red(error))
             process.exit(1)
         }
         let readInfoArr = []
@@ -73,7 +74,7 @@ function getCodeLineNumByAuthor(author) {
             fs.unlinkSync(randomFile)
             let result = handleLine(readInfoArr)
             result.author = author
-            console.log(result)
+            console.log(`{ total: ${chalk.yellowBright(result.total)}, add: ${chalk.greenBright(result.add)}, del: ${chalk.redBright(result.del)}, author: ${result.author} }`)
         });
     })
 }

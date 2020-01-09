@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const program = require('commander')
 const didYouMean = require('didyoumean')
+const chalk = require('chalk')
 const util = require('../lib/util')
 const requiredVersion = require('../../package.json').engines.node
 
@@ -18,7 +19,7 @@ program
   .option("-a, --author [author]", "统计指定贡献者在项目中的git提交代码量")
   .action(function (options) {
     if (options.author && options.author === true) {
-      console.log('请输入贡献者的名字')
+      console.log(chalk.yellow('请输入贡献者的名字'))
       process.exit(1)
     }
     require('../lib/codeLineNum')(options.author)
@@ -28,13 +29,15 @@ program
     console.log(' git-tool codeLineNum', '统计所有贡献者的代码量');
     console.log(' git-tool codeLineNum -a adai', '统计指定贡献者的代码量');
     console.log(' git-tool codeLineNum --author adai', '统计指定贡献者的代码量');
+    console.log('');
   });
 
 program
   .arguments('<command>')
   .action((cmd) => {
     program.outputHelp()
-    console.log(`  ` + `Unknown command ${cmd}.`)
+    console.log()
+    console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}`))
     console.log()
     suggestCommands(cmd)
   })
@@ -50,6 +53,6 @@ function suggestCommands(unknownCommand) {
 
   const suggestion = didYouMean(unknownCommand, availableCommands)
   if (suggestion) {
-    console.log(`  ` + `Did you mean ${suggestion}?`)
+    console.log(`  ` + chalk.red(`Did you mean ${chalk.yellow(suggestion)} ?`))
   }
 }
