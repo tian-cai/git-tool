@@ -15,8 +15,11 @@
     "prepublish:patch": "npm version patch && npm run changelog && git add . && git commit --amend",
     "postpublish:patch": "git push --tags"
   },
+  "files": [
+    "src"
+  ],
   "bin": {
-    "git-tool": "bin/gitTool.js"
+    "git-tool": "src/bin/gitTool.js"
   },
   "repository": {
     "type": "git",
