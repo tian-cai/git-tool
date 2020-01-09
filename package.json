@@ -2,7 +2,6 @@
   "name": "git-tool",
   "version": "1.0.6",
   "description": "统计个人代码提交量的命令行工具",
-  "main": "index.js",
   "dependencies": {
     "commander": "^2.19.0"
   },
@@ -14,7 +13,7 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "bin": {
-    "git-tool": "./index.js"
+    "git-tool": "bin/gitTool.js"
   },
   "repository": {
     "type": "git",
