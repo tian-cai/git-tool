@@ -13,10 +13,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s && git add . && git commit -m 'docs: update chengelog'",
     "publish:patch": "npm publish",
-    "prepublish:patch": "npm version patch && npm run changelog && git add . && git commit --amend",
-    "postpublish:patch": "git push --tags"
+    "prepublish:patch": "npm version patch",
+    "postpublish:patch": "npm run changelog && git push --tags && git push",
+    "publish:minor": "npm publish",
+    "prepublish:minor": "npm version minor",
+    "postpublish:minor": "npm run changelog && git push --tags && git push"
   },
   "files": [
     "src"
@@ -39,6 +42,6 @@
   },
   "homepage": "https://github.com/tian-cai/git-tool#readme",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   }
 }
