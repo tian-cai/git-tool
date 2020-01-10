@@ -1,6 +1,6 @@
 {
   "name": "git-tool",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "统计个人代码提交量的命令行工具",
   "dependencies": {
     "chalk": "^3.0.0",
