@@ -21,10 +21,10 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "postchangelog": "git add CHANGELOG.md && git commit -m 'docs: update chengelog'",
     "publish:patch": "npm publish",
-    "prepublish:patch": "npm version patch",
+    "prepublish:patch": "npm version patch && npm run changelog",
     "postpublish:patch": "git push --tags && git push",
     "publish:minor": "npm publish",
-    "prepublish:minor": "npm version minor",
+    "prepublish:minor": "npm version minor && npm run changelog",
     "postpublish:minor": "git push --tags && git push",
     "lint": "eslint src",
     "lint:fix": "eslint --fix src"
