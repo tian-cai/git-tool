@@ -15,7 +15,9 @@
     "eslint-plugin-import": "^2.20.0",
     "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^3.0.9",
+    "validate-commit-msg": "^2.14.0"
   },
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
@@ -27,7 +29,8 @@
     "prepublish:minor": "npm version minor && npm run changelog",
     "postpublish:minor": "git push --tags && git push",
     "lint": "eslint src",
-    "lint:fix": "eslint --fix src"
+    "lint:fix": "eslint --fix src",
+    "check:commit-msg": "validate-commit-msg"
   },
   "files": [
     "src"
@@ -51,5 +54,11 @@
   "homepage": "https://github.com/tian-cai/git-tool#readme",
   "engines": {
     "node": ">=8.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "npm run check:commit-msg"
+    }
   }
 }

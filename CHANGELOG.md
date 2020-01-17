@@ -7,7 +7,7 @@
 
 
 
-# [1.1.0](https://github.com/tian-cai/git-tool/compare/f3a270a7f8274496d5d9a6c22755a0195fea4925...v1.1.0) (2020-01-10)
+## [1.1.0](https://github.com/tian-cai/git-tool/compare/f3a270a7f8274496d5d9a6c22755a0195fea4925...v1.1.0) (2020-01-10)
 
 
 ### Features
